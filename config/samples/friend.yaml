@@ -1,0 +1,10 @@
+apiVersion: bitcoin.kiln-fired.github.io/v1alpha1
+kind: BitcoinNode
+metadata:
+  name: friend
+spec:
+  miningEnabled: false
+  rpcServer:
+    certSecret: friend-rpc-tls
+    user: node-user2
+    password: st4cks4ts2

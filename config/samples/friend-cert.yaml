@@ -1,0 +1,16 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: friend-rpc-tls
+spec:
+  commonName: friend
+  dnsNames:
+    - friend-kiln.apps-crc.testing
+    - friend.kiln.svc.cluster.local
+    - friend
+    - localhost
+  issuerRef:
+    name: rootca
+  secretName: friend-rpc-tls
+  usages:
+    - server auth

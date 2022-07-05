@@ -160,6 +160,7 @@ func (r *BitcoinNodeReconciler) Reconcile(ctx context.Context, req ctrl.Request)
 
 	if minBlocks != 0 && blockCount < minBlocks {
 		numBlocksToGenerate := minBlocks - blockCount
+		err := btcdClient.SetGenerate(false, 0)
 		hashes, err := btcdClient.Generate(uint32(numBlocksToGenerate))
 		if err != nil {
 			log.Info("Failed to generate blocks", "error", err.Error())
